@@ -2549,6 +2549,8 @@ app.get("/enrolled_courses/:userId/:currId", async (req, res) => {
       c.course_code,
       c.course_description,
       st.description,
+      c.course_unit,
+      c.lab_unit,
       ds.id AS department_section_id,
       pt.program_code,
       IFNULL(rd.description, 'TBA') AS day_description,

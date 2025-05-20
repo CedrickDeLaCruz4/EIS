@@ -255,7 +255,7 @@ const CourseTagging = () => {
       } = response.data;
 
       console.log("data[0]:", data[0]);
-console.log("yearLevelDescription state:", yearLevelDescription);
+      console.log(course_unit);
       // Save to localStorage
       localStorage.setItem("token", token);
       localStorage.setItem("person_id", person_id);
@@ -297,6 +297,7 @@ console.log("yearLevelDescription state:", yearLevelDescription);
       // 3. Set additional fields: gender, age, email, program
       setGender(fullData.gender || null);
       setAge(fullData.age || null);
+      console.log(age)
       setEmail(fullData.email || null);
       setProgram(fullData.program || null);
       alert("Student found and data loaded!");
@@ -370,6 +371,10 @@ console.log("yearLevelDescription state:", yearLevelDescription);
 
             button {
               display: none;
+            }
+
+            .student-table {
+              margin-top: -30px !important;
             }
           </style>
         </head>
@@ -477,7 +482,7 @@ console.log("yearLevelDescription state:", yearLevelDescription);
             <div className="section">
 
               <table
-
+                className="student-table"
                 style={{
                   border: "1px solid black",
                   borderCollapse: "collapse",
@@ -1226,7 +1231,7 @@ console.log("yearLevelDescription state:", yearLevelDescription);
                       <td colSpan={8} style={{ border: "1px solid black" }}>
                         <input
                           type="text"
-                          value={`${item.day_description} ${item.school_time_start}-${item.school_time_end} / ${item.room_description}`}
+                          value={`${item.day_description} ${item.school_time_start}-${item.school_time_end}`}
                           style={{
                             width: "98%",
                             border: "none",
